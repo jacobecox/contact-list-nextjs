@@ -16,25 +16,27 @@ export default function Home() {
       const contactSearch = (term) => {
         
     axios
-		.get('../data.json')
+		.get('./data.json')
 		.then((response) => {
-			console.log(response.data.contacts);
+		console.log(response.data.contacts);
       setContacts(response.data.contacts)
 		})
 		.catch((error) => {
 			console.error(error);
 		});
+    
       };
 
 
   return (
     <main className={styles.main}>
       <div className='text-center'>
-        <h1>Main Page</h1>
+        <h1>Contacts</h1>
         <SearchBar onSearchTermChange={contactSearch}/>
         <NewContact>Add New Contact</NewContact>
+        <Contact contacts={contacts}/>
         <ContactList onContactSelect={onContactSelect}contacts={contacts}>Contacts</ContactList>
-        <Contact/>
+        
       </div>
     </main>
   )
