@@ -2,7 +2,6 @@
 import styles from './page.module.css';
 import axios from 'axios';
 import { useState } from 'react';
-import { ContactList } from './components/contactList'
 import { Contact } from './components/contact'
 import { NewContact } from './components/newContact'
 import { SearchBar } from './components/searchBar';
@@ -30,13 +29,29 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <div className='text-center'>
+      <div className='container-fluid text-center'>
         <h1>Contacts</h1>
         <SearchBar onSearchTermChange={contactSearch}/>
         <NewContact>Add New Contact</NewContact>
+        <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-3 contact-layout">
+          Photo
+        </div>
+        <div className="col-md-3 contact-layout">
+          Name
+        </div>
+        <div className="col-md-3 contact-layout">
+          Number
+        </div>
+        <div className="col-md-3 contact-layout">
+          Email
+        </div>
+      </div>
+    </div>
+    <hr/>
+
         <Contact contacts={contacts}/>
-        <ContactList onContactSelect={onContactSelect}contacts={contacts}>Contacts</ContactList>
-        
       </div>
     </main>
   )

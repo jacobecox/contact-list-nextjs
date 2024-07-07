@@ -1,0 +1,21 @@
+.small-image {
+  width: 100%;
+  height: auto;
+}
+
+.image-wrap {
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+
+.contact-layout {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+}

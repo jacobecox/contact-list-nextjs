@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './contact.css'
 
 export const Contact = ({ contacts }) => {
 
@@ -11,28 +11,27 @@ export const Contact = ({ contacts }) => {
 		);
 	};
 
-  const contactItems = contacts.map ((contact) => {
-
+   const contactItems = contacts.map ((contact) => {
    const imageUrl = contact.image_url;
-
-  //  figuring out how to line items in rows
-  // also figuring out why image is not displaying properly
 
     return (
       <div className='container-fluid' key={contact.id}>
-        <div className='row col-md-6'>
-          <img className='media-object' src={imageUrl}/>
-        </div>
-        <div className='col-md-6'>
-          <p>{contact.name}</p>
+        <div className='row'>
+          <div className='col-md-3 contact-layout'>
+            <div className='image-wrap'>
+            <img className='small-image' src={imageUrl} alt='contact photo'/>
+            </div>
+          </div>
+          <div className='col-md-3'>
+          <p className='contact-layout'>{contact.name}</p>
+          </div>
         </div>
       </div>
     );
  
   }); 
   return (
-    <div className='row col12-col-md-4 list-group'>
-      <h5>Profile Picture</h5>
+    <div className='row col-md-12 list-group'>
       <ul>
         {contactItems}
       </ul>

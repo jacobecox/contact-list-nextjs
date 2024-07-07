@@ -3,14 +3,14 @@
     {
       "id": 70219577,
       "name": "Albert Einstein",
-      "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
       "email": "aeinstein@example.com",
       "phone_number": "15555555555"
     },
     {
       "id": 70219111,
       "name": "Nancy Pelosi",
-      "image_url": "https://en.wikipedia.org/wiki/Nancy_Pelosi#/media/File:Official_photo_of_Speaker_Nancy_Pelosi_in_2019.jpg",
+      "image_url": "https://pelosi.house.gov/sites/evo-subsites/pelosi-evo.house.gov/files/documents/Portrait%20Photo%20Compressed.jpg",
       "email": "nancypelosi@example.com",
       "phone_number": "11111111"
     }
