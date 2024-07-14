@@ -2,17 +2,17 @@
   "contacts": [
     {
       "id": 70219577,
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
       "name": "Albert Einstein",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
-      "email": "aeinstein@example.com",
-      "phone_number": "15555555555"
+      "phone": "1(555)5555555",
+      "email": "aeinstein@example.com"
     },
     {
       "id": 70219111,
+      "photo": "https://pelosi.house.gov/sites/evo-subsites/pelosi-evo.house.gov/files/documents/Portrait%20Photo%20Compressed.jpg",
       "name": "Nancy Pelosi",
-      "image_url": "https://pelosi.house.gov/sites/evo-subsites/pelosi-evo.house.gov/files/documents/Portrait%20Photo%20Compressed.jpg",
-      "email": "nancypelosi@example.com",
-      "phone_number": "11111111"
+      "phone": "1(800)1111111",
+      "email": "npelosi@example.com"
     }
   ]
 }

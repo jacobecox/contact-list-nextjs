@@ -6,7 +6,7 @@ export const SearchBar = ({ onSearchTermChange }) => {
 
 	return (
 		<div className='search-bar'>
-			<input className='text-center'
+			<input className='search text-center'
         placeholder="Search Contacts"
 				value={term}
 				onChange={(event) => {

@@ -1,21 +1,39 @@
 .small-image {
-  width: 100%;
-  height: auto;
-}
-
-.image-wrap {
-  width: 80%;
-  height: 80%;
+  width: 25px;
+  height: 25px;
   overflow: hidden;
   border-radius: 50%;
-  transform: scale(0.5);
+  object-fit: cover;
+  transform: scale(1.5);
+  vertical-align: top;
 }
 
 .contact-layout {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 0px;
   justify-content: center;
   align-items: center;
+  height: 30px;
+}
+
+.border {
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.hr {
+  width: 100%;
+}
+
+.button {
+  background-color: lightgreen;
+  color: white;
+  border: none;
+  margin: 20px;
+}
+
+.search {
+  width: 300px;
 }

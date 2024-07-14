@@ -1,7 +1,10 @@
+import Link from 'next/link'
 export const NewContact = () => {
-  return (
-    <div>
-      <p>Add New Contact</p>
-    </div>
-  )
-}
+  const handleClick = () => {
+};
+
+return (
+  <div>
+    <Link href='/newcontact'><button onClick={handleClick}  className='button'>Add New Contact</button></Link>
+  </div>
+) };
