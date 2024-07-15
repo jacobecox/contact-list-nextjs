@@ -2,11 +2,13 @@
 import Link from 'next/link';
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
+import { contactAPI } from 'app/data/contactAPI';
 
 export default function NewContact() {
 
-  const id  = () => Math.round(Math.random() * 100000000);
+  const generateId = () => Math.round(Math.random() * 100000000);
+
+  const id = generateId()
 
   const [photo, setPhoto] = useState(null);
 	const [name, setName] = useState(null);
@@ -15,19 +17,14 @@ export default function NewContact() {
 	const router = useRouter();
 
   const handleSubmitContactClick = () => {
-    try{
-    axios.post('./data.json',{
+    contactAPI.addContact ({
       id,
       photo,
-			name,
-			number,
-			email,
-		});
-    console.log('Data added successfully!');
-  } catch (error) {
-    console.error('Error adding data:', error);
-    console.log('Error adding data');
-  }
+      name,
+      number,
+      email
+    })
+
 		router.push('/');
 	};
 

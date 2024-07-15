@@ -7,6 +7,7 @@ import { Contact } from './components/contact'
 import { SearchBar } from './components/searchBar';
 import { NewContact } from './components/newContact';
 
+
 export default function Home() {
 
   const [contacts, setContacts] = useState('');  
