@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { contactAPI } from 'app/data/contactAPI';
+import { contactData } from 'app/data/contactData';
+import PropTypes from 'prop-types'
 
 export default function NewContact() {
 
@@ -11,13 +12,15 @@ export default function NewContact() {
   const id = generateId()
 
   const [photo, setPhoto] = useState(null);
-	const [name, setName] = useState(null);
-	const [number, setNumber] = useState(null);
+  const [name, setName] = useState(null);
+	const [number, setNumber] = useState('');
   const [email, setEmail] = useState(null);
 	const router = useRouter();
 
-  const handleSubmitContactClick = () => {
-    contactAPI.addContact ({
+
+  const handleSubmitContactClick = (event) => {
+
+    contactData.addContact ({
       id,
       photo,
       name,
@@ -26,7 +29,15 @@ export default function NewContact() {
     })
 
 		router.push('/');
-	};
+  }; 
+  
+  NewContact.propTypes = {
+    photo: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired
+  }
+  
 
   return (
     <div>
@@ -49,6 +60,7 @@ export default function NewContact() {
           placeholder='Enter name'
 					onChange={(event) => setName(event.target.value)}
 				/>
+   
 
 				<br />
 
@@ -58,7 +70,7 @@ export default function NewContact() {
 					className='form-control'
           placeholder='Enter phone number'
 					onChange={(event) =>
-						setNumber(parseInt(event.target.value, 10))
+						setNumber(event.target.value)
 					}
 				/>
 
@@ -84,5 +96,7 @@ export default function NewContact() {
     <Link href='/'><button className='back-button'>Back</button></Link>
   </div>
   )
+
+
 }
   

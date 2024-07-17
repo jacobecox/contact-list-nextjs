@@ -1,10 +1,16 @@
+'use client'
 import React from 'react';
 import './contact.css'
-import Link from 'next/link'
+import Link from 'next/link';
+import { contactData } from '../data/contactData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export const Contact = ({ contacts }) => {
+export const Contact = () => {
+
+	const contacts = contactData.all();
+
+console.log(contacts)
 
  if (!contacts) {
 		return (
@@ -12,11 +18,13 @@ export const Contact = ({ contacts }) => {
 				<p>No results</p>
 			</div>
 		);
-	};
+  };
 
-   const contactItems = contacts.map ((contact) => {
-   const imageUrl = contact.photo;
+  const contactItems = contacts.map((contact) => {
 
+  const imageUrl = contact.photo;
+
+  
     return (
        <div className='container-fluid border' key={contact.id}>
           <div className='row col-md-12'>
@@ -33,7 +41,7 @@ export const Contact = ({ contacts }) => {
             <Link className='contact-layout' href={`/contactinfo/${contact.id}`}>{contact.name}</Link>
            </div>
            <div className='col-md-3'>
-             <p className='contact-layout'>{contact.phone}</p>
+             <p className='contact-layout'>{contact.number}</p>
             </div>
             <div className='col-md-3'>
               <p className='contact-layout'>{contact.email}</p>
@@ -41,8 +49,8 @@ export const Contact = ({ contacts }) => {
         </div>
       </div>
     );
- 
-  }); 
+  });
+
   return (
     <div className='row'>
       <ul className='col-md-12'>
@@ -50,4 +58,4 @@ export const Contact = ({ contacts }) => {
       </ul>
     </div>
   )
-};
+}; 

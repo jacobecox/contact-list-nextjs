@@ -1,32 +1,16 @@
 'use client'
 import styles from './page.module.css';
-import axios from 'axios';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Contact } from './components/contact'
+import { Contact } from './components/contact';
 import { SearchBar } from './components/searchBar';
 import { NewContact } from './components/newContact';
 
 
+
 export default function Home() {
 
-  const [contacts, setContacts] = useState('');  
-  
- 
-  
-      const contactSearch = (term) => {
-        
-    axios
-		.get('./data.json')
-		.then((response) => {
-      setContacts(response.data.contacts)
-		})
-		.catch((error) => {
-			console.error(error);
-		});
-    
-      };
-
+  const contactSearch = (term) => {}
 
   return (
     <main className={styles.main}>
@@ -57,7 +41,7 @@ export default function Home() {
     </div>
     <hr/>
 
-        <Contact contacts={contacts}/>
+        <Contact/>
       </div>
     </main>
   )
