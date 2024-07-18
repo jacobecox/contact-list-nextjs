@@ -27,7 +27,7 @@ export default function NewContact() {
     email: PropTypes.string
   }
 
-  const handleSubmitContactClick = (event) => {
+  const handleSubmitContactClick = () => {
 
     contactData.addContact ({
       id,
@@ -38,13 +38,7 @@ export default function NewContact() {
     })
 
 		router.push('/');
-		
-		console.log(name)
   }; 
-  
- 
-  
-
 
   return (
     <div>
@@ -67,7 +61,6 @@ export default function NewContact() {
           placeholder='Enter name'
 					onChange={(event) => setName(event.target.value)}
 				/>
-   
 
 				<br />
 
@@ -93,7 +86,7 @@ export default function NewContact() {
 
         <br />
 
-				<button className='submit-button' onClick={handleSubmitContactClick}>
+				<button type='button' className='button' onClick={handleSubmitContactClick}>
 					Add New Contact
 				</button>
 			</form>

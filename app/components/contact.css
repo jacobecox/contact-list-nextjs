@@ -46,7 +46,7 @@
 }
 
 .button {
-  background-color: lightgreen;
+  background-color: limegreen;
   color: white;
   border: none;
   margin: 20px;
@@ -56,14 +56,6 @@
   display: block;
   margin: 0 auto;
   background-color: red;
-  color: white;
-  border: none;
-}
-
-.submit-button {
-  display: block;
-  margin: 0 auto;
-  background-color: limegreen;
   color: white;
   border: none;
 }
