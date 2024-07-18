@@ -1,4 +1,5 @@
 'use client'
+import 'app/components/contact.css'
 import  { useState } from 'react';
 
 export const SearchBar = ({ onSearchTermChange }) => {

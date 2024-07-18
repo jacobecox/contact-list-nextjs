@@ -1,11 +1,14 @@
 'use client';
-import Link from 'next/link';
+import 'app/components/contact.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { contactData } from 'app/data/contactData';
 import PropTypes from 'prop-types'
 
 export default function NewContact() {
+	const handleClick = () => {
+		router.push('/')
+	};
 
   const generateId = () => Math.round(Math.random() * 100000000);
 
@@ -13,10 +16,16 @@ export default function NewContact() {
 
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(null);
-	const [number, setNumber] = useState('');
+	const [number, setNumber] = useState(null);
   const [email, setEmail] = useState(null);
 	const router = useRouter();
 
+ NewContact.propTypes = {
+    photo: PropTypes.string,
+    name: PropTypes.string,
+    number: PropTypes.number,
+    email: PropTypes.string
+  }
 
   const handleSubmitContactClick = (event) => {
 
@@ -29,20 +38,18 @@ export default function NewContact() {
     })
 
 		router.push('/');
+		
+		console.log(name)
   }; 
   
-  NewContact.propTypes = {
-    photo: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.number.isRequired,
-    email: PropTypes.string.isRequired
-  }
+ 
   
+
 
   return (
     <div>
-      <h1>Create New Contact</h1>
-    <form>
+      <h1 className='text-center'>Create New Contact</h1>
+    <form className='text-center'>
 				<label>Photo Link</label>
 				<input
 					type='text'
@@ -86,17 +93,17 @@ export default function NewContact() {
 
         <br />
 
-				<button type='button' className='submit-button' onClick={handleSubmitContactClick}>
-					Submit
+				<button className='submit-button' onClick={handleSubmitContactClick}>
+					Add New Contact
 				</button>
 			</form>
 
       <br />
-
-    <Link href='/'><button className='back-button'>Back</button></Link>
-  </div>
-  )
-
+		<div>
+    	<button className='back-button' onClick={handleClick}>Back</button>
+		</div>
+  </div>	
+	)
 
 }
   

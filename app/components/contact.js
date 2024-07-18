@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import './contact.css'
+import 'app/components/contact.css'
 import Link from 'next/link';
 import { contactData } from '../data/contactData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,8 +9,6 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 export const Contact = () => {
 
 	const contacts = contactData.all();
-
-console.log(contacts)
 
  if (!contacts) {
 		return (
@@ -21,8 +19,6 @@ console.log(contacts)
   };
 
   const contactItems = contacts.map((contact) => {
-
-  const imageUrl = contact.photo;
 
   
     return (
@@ -35,7 +31,7 @@ console.log(contacts)
             <FontAwesomeIcon icon={faTrash} style={{color: "#000000",}} />
             </div>
           <div className='col-md-2 contact-layout'>
-             <img className='small-image' src={imageUrl}   alt='contact photo'/>
+             <img className='small-image' src={contact.photo}   alt='contact photo'/>
             </div>
             <div className='col-md-2'>
             <Link className='contact-layout' href={`/contactinfo/${contact.id}`}>{contact.name}</Link>

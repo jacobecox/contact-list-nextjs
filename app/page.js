@@ -1,7 +1,7 @@
 'use client'
+import 'app/components/contact.css'
 import styles from './page.module.css';
 import Link from 'next/link';
-import { useState } from 'react';
 import { Contact } from './components/contact';
 import { SearchBar } from './components/searchBar';
 import { NewContact } from './components/newContact';

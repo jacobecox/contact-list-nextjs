@@ -22,4 +22,8 @@ export const contactData = {
   addContact: function ({ id, photo, name, email, number }) {
 		this.contacts.push({ id, photo, name, email, number });
   },
+  get: function (id) {
+		const isContact = (c) => c.id === id;
+		return this.contacts.find(isContact);
+	},
 }
