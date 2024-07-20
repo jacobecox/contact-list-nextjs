@@ -1,47 +1,64 @@
 'use client'
 import 'app/components/contact.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './page.module.css';
 import Link from 'next/link';
-import { Contact } from './components/contact';
-import { SearchBar } from './components/searchBar';
+import { useState } from 'react'
 import { NewContact } from './components/newContact';
-
-
+import { contactData } from './data/contactData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
 
-  const contactSearch = (term) => {}
+  const contacts = contactData.all()
+
+  const [search, setSearch] = useState('');
 
   return (
     <main className={styles.main}>
-      <div className='container-fluid text-center'>
+      <div className='text-center'>
         <h1>Contacts</h1>
-          <SearchBar onSearchTermChange={contactSearch}/>
+      </div>
+      <input className='search text-center'
+    placeholder="Search Contacts" onChange={(e) => setSearch(e.target.value)}/>
         <div>
           <NewContact><Link href='/newcontact'></Link></NewContact>
         </div>
+      
+      < br/>
         
-        <div className="container-fluid">
-      <div className="row col-md-12">
-        <div className='col-md-2 contact-layout'>
-        </div>
-        <div className="col-md-2 contact-layout">
-          Photo
-        </div>
-        <div className="col-md-2 contact-layout">
-          Name
-        </div>
-        <div className="col-md-3 contact-layout">
-          Number
-        </div>
-        <div className="col-md-3 contact-layout">
-          Email
-        </div>
-      </div>
-    </div>
-    <hr/>
-
-        <Contact/>
+      <div className='container mt-4'>
+      <table className='table'>
+          <thead>
+            <tr className='text-center'>
+              <th>Actions</th>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Number</th>
+              <th>Email</th>
+            </tr>
+            
+          </thead>
+          <tbody>
+            {contacts.filter((contact) => {
+              return search.toLowerCase() === '' ? contact : contact.name.     toLowerCase().includes(search);
+              }).map((contact)=> (
+              <tr key={contact.id}>
+                      <td>
+                        <FontAwesomeIcon className='icon' icon={faPen} style={{color: "#000000",}} />
+                        <FontAwesomeIcon className='icon' icon={faTrash} style={{color: "#000000",}} />
+                      </td>
+                      <td>
+                         <img className='small-image' src={contact.photo}   alt='contact photo'/>
+                       </td>
+                       <td> <Link href={`/contactinfo/${contact.id}`}>{contact.name}</Link></td>
+                       <td>{contact.number}</td>
+                       <td>{contact.email}</td>
+                   </tr>
+                  ))}
+            </tbody>
+        </table> 
       </div>
     </main>
   )

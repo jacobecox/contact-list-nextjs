@@ -41,6 +41,11 @@
   background-color: rgb(240, 240, 240);
 }
 
+.table {
+  border: 3px;
+  color: red;
+}
+
 .hr {
   width: 100%;
 }
@@ -62,4 +67,8 @@
 
 .search {
   width: 300px;
+}
+
+.icon {
+  margin: 5px;
 }
