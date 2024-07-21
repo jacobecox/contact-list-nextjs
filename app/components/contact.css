@@ -20,41 +20,17 @@
   margin: 0 auto;
 }
 
-.contact-layout {
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-}
-
 .form-control {
   width: 500px;
   display: block;
   margin: 0 auto;
 }
 
-.border {
-  width: 100%;
-  background-color: rgb(240, 240, 240);
-}
-
-.table {
-  border: 3px;
-  color: red;
-}
-
-.hr {
-  width: 100%;
-}
-
 .button {
   background-color: limegreen;
   color: white;
   border: none;
-  margin: 20px;
+  margin: 10px;
 }
 
 .back-button {

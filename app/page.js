@@ -20,15 +20,14 @@ export default function Home() {
       <div className='text-center'>
         <h1>Contacts</h1>
       </div>
-      <input className='search text-center'
+      <div className='text-center'>
+      <input className='search'
     placeholder="Search Contacts" onChange={(e) => setSearch(e.target.value)}/>
-        <div>
-          <NewContact><Link href='/newcontact'></Link></NewContact>
+      </div>
+        <div className='text-center'>
+          <NewContact/>
         </div>
-      
-      < br/>
-        
-      <div className='container mt-4'>
+     <div className='container mt-4'>
       <table className='table'>
           <thead>
             <tr className='text-center'>
@@ -38,23 +37,22 @@ export default function Home() {
               <th>Number</th>
               <th>Email</th>
             </tr>
-            
-          </thead>
+            </thead>
           <tbody>
             {contacts.filter((contact) => {
               return search.toLowerCase() === '' ? contact : contact.name.     toLowerCase().includes(search);
               }).map((contact)=> (
               <tr key={contact.id}>
-                      <td>
+                      <td className='text-center'>
                         <FontAwesomeIcon className='icon' icon={faPen} style={{color: "#000000",}} />
                         <FontAwesomeIcon className='icon' icon={faTrash} style={{color: "#000000",}} />
                       </td>
-                      <td>
+                      <td className='text-center'>
                          <img className='small-image' src={contact.photo}   alt='contact photo'/>
                        </td>
-                       <td> <Link href={`/contactinfo/${contact.id}`}>{contact.name}</Link></td>
-                       <td>{contact.number}</td>
-                       <td>{contact.email}</td>
+                       <td className='text-center'> <Link href={`/contactinfo/${contact.id}`}>{contact.name}</Link></td>
+                       <td className='text-center'>{contact.number}</td>
+                       <td className='text-center'>{contact.email}</td>
                    </tr>
                   ))}
             </tbody>
